@@ -4,21 +4,12 @@ services:
   console:
     build:
       context: .
-      args:
-        NODE_ENV: "development"
-    entrypoint: bash
-    volumes:
-      - ./:/app
-
-  server:
-    build:
-      context: .
-      args:
-        NODE_ENV: "development"
-    command: gatsby develop -H 0.0.0.0
+    environment:
+      - NODE_ENV=development
     ports:
-      - "8000:8000"
-    entrypoint: bash
+      - 8000:8000
+      - 9929:9929
+      - 9230:9230
     volumes:
-      - ./:/app
-
+      - /app/node_modules
+      - .:/app

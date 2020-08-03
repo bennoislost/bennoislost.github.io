@@ -6,10 +6,12 @@ services:
       context: .
     environment:
       - NODE_ENV=development
+      - SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock
     ports:
       - 8000:8000
       - 9929:9929
       - 9230:9230
     volumes:
+      - /run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock
       - /app/node_modules
       - .:/app

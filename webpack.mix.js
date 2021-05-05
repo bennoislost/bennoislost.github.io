@@ -1,20 +1,22 @@
 const mix = require('laravel-mix');
+require('laravel-mix-jigsaw');
 
-mix.setPublicPath('public/assets');
-mix.setResourceRoot('..');
+mix.disableSuccessNotifications();
+mix.setPublicPath('source/assets');
 
-mix.options({
-    processCssUrls: false,
-});
+mix.copy([
+    'resources/images/'
+], 'source/assets/images');
 
-mix.copy('resources/images/', 'public/assets/images');
 
-// mix.js('resources/js/app.js', 'js');
-
-mix.postCss('resources/css/app.css', 'css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-]).version();
-
-mix.disableNotifications();
+mix.jigsaw()
+    // .js('source/_assets/js/main.js', 'js')
+    .postCss('resources/css/app.css', 'css', [
+        require('postcss-import'),
+        require('tailwindcss'),
+        require('autoprefixer'),
+    ])
+    .options({
+        processCssUrls: false,
+    })
+    .version();

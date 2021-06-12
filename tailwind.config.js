@@ -4,7 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   purge: [
-
+      './source/**/*.blade.php'
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {

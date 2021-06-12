@@ -6,6 +6,10 @@
     display: none !important;
 }
 
+::selection {
+    @apply bg-red-700 text-white;
+}
+
 body {
     @apply bg-white;
 }

@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+[x-cloak] {
+    display: none !important;
+}
+
+::selection {
+    @apply bg-red-700 text-white;
+}
+
+body {
+    @apply bg-white;
+}

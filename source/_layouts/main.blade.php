@@ -22,7 +22,9 @@
         <meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
     </head>
     <body>
-        <div class="breakpoint fixed z-50 top-1 left-1 flex text-xs"></div>
+        @unless($page->production)
+            <div class="breakpoint fixed z-50 top-1 left-1 flex text-xs"></div>
+        @endif
         <div class="max-w-5xl mx-auto px-6 min-h-screen">
             @include('_snippets/header')
 
